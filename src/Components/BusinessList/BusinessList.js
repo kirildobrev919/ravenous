@@ -4,6 +4,7 @@ import Business from '../Business/Business';
 
  class BusinessList extends React.Component{
     render(){
+        debugger;
         return (
             <div className="BusinessList">
                 {
