@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+<<<<<<< HEAD
+=======
+To run this project in development mode you will need to have installed on your machine Node.js and npm.
+After getting the code you will need to run (in git bash from the project folder or in terminal)  the command: npm install
+The command will install node_modules for the project which is important for the app.
+After that to run the app in (git bash or in terminal) use: npm start
+
+>>>>>>> 18b877e34aa98cb9a059cd1fa1a25775bd3dbc69
 ## Available Scripts
 
 In the project directory, you can run:
