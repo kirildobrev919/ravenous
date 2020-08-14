@@ -1,6 +1,4 @@
 import React from 'react';
-//import logo from './logo.svg';
-//import logo from './favicon.ico';
 import './App.css';
 import BusinesList from '../BusinessList/BusinessList';
 import SearchBar from '../SearchBar/SearchBar';
@@ -17,17 +15,30 @@ class App extends React.Component {
   }
 
   searchYelp(term, location, sortBy) {
-    Yelp.search(term, location, sortBy).then(businesses => {
-      this.setState({businesses: businesses});
-    });
+    debugger;
+    try {
+      Yelp.search(term, location, sortBy).then(businesses => {
+        this.setState({ businesses: businesses });
+      });
+    } catch (err) {
+      console.log(err);
+      alert('Ooops, something went wrong. Probably we dont have info for that location.');
+    }
   }
 
   render() {
+    let notUndefined;
+    if (this.state.businesses !== undefined) {
+      notUndefined = <BusinesList businesses={this.state.businesses} />
+    }else{
+      notUndefined = <h1 style={{textAlign:'center'}}>Sorry we don't have information for this location</h1>
+    }
+
     return (
       <div className="App">
-        <h1>ravenous</h1>
+        <h1>Place Finder</h1>
         <SearchBar searchYelp={this.searchYelp} />
-        <BusinesList businesses={this.state.businesses} />
+        {notUndefined}
       </div>
     );
   }
