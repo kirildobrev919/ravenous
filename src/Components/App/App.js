@@ -27,11 +27,16 @@ class App extends React.Component {
   }
 
   render() {
+    
     let notUndefined;
     if (this.state.businesses !== undefined) {
-      notUndefined = <BusinesList businesses={this.state.businesses} />
-    }else{
-      notUndefined = <h1 style={{textAlign:'center'}}>Sorry we don't have information for this location</h1>
+      if (this.state.businesses.length > 0) {
+        notUndefined = <BusinesList businesses={this.state.businesses} />
+      } else {
+        notUndefined = <h1 style={{ textAlign: 'center' }}>Sorry we don't have information for this location</h1>
+      }
+    } else {
+      notUndefined = <h1 style={{ textAlign: 'center' }}>Sorry unknown location</h1>
     }
 
     return (
