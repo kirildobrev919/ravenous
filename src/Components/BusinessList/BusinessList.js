@@ -1,13 +1,13 @@
 import React from 'react';
 import './BusinessList.css';
-import Business from '../Business/Business';
+import Business from '../Business/Business.tsx';
 
 class BusinessList extends React.Component {
+
     render() {
-        debugger;
         const businessesArr = this.props.businesses;
         let list;
-        if (businessesArr && businessesArr.length != 0 ) {
+        if (businessesArr && businessesArr.length !== 0) {
             list = this.props.businesses.map(business => {
                 return <Business key={business.id} business={business} />;
             })
