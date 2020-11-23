@@ -5,8 +5,8 @@ import SearchBar from '../SearchBar/SearchBar';
 import Yelp from '../../util/Yelp';
 
 class App extends React.Component {
-  constructor(props){
-    super(props);
+  constructor(props) {
+    super();
     this.state = {
       businesses: []
     }
@@ -15,7 +15,7 @@ class App extends React.Component {
   }
 
   searchYelp(term, location, sortBy) {
-    debugger;
+
     try {
       Yelp.search(term, location, sortBy).then(businesses => {
         this.setState({ businesses: businesses });
@@ -27,7 +27,6 @@ class App extends React.Component {
   }
 
   render() {
-    
     let notUndefined;
     if (this.state.businesses !== undefined) {
       if (this.state.businesses.length > 0) {
