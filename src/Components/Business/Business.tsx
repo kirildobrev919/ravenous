@@ -1,9 +1,6 @@
 import * as React from 'react';
 import './Business.css';
 import { MappedBusiness } from '../../util/types';
-/// <reference path="react.d.ts" />
-/* this is just test of using typescript in react
-it should not use Business.js file while .tsx is imported in BusinessList.js */
 
 type BusinessType ={
     key: any,

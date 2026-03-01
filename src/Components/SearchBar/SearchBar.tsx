@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import "./SearchBar.css";
-import {SortByOptionKey, SortByOptionValue, sortByOptions} from '../../util/types'
+import {
+  SortByOptionKey,
+  SortByOptionValue,
+  sortByOptions,
+} from "../../util/types";
 
 type SearchBarType = {
   searchYelp: (term: string, location: string, sortBy: SortByOptionValue) => {};
@@ -25,15 +29,19 @@ const SearchBar = (props: SearchBarType) => {
     setSortBy(sortByOption);
   };
 
-  const handleTermChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+  const handleTermChange = (event: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
     setTerm(event.target.value);
   };
 
-  const handleLocationChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+  const handleLocationChange = (event: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
     setLocation(event.target.value);
   };
 
-  const handleSearch = (event: { preventDefault: () => void; }) => {
+  const handleSearch = (event: { preventDefault: () => void }) => {
     console.log("Running search in Yelp");
     props.searchYelp(term, location, sortBy);
     event.preventDefault();
@@ -68,11 +76,11 @@ const SearchBar = (props: SearchBarType) => {
         <input onChange={handleTermChange} placeholder="Search Businesses" />
         <input onChange={handleLocationChange} placeholder="Where?" />
       </div>
-    <div className="SearchBar-submit">
+      <div className="SearchBar-submit">
         <button type="button" onClick={handleSearch}>
           Let&apos;s Go
         </button>
-        </div>
+      </div>
     </div>
   );
 };
